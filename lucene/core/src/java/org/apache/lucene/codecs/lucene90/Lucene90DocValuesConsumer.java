@@ -65,6 +65,7 @@ final class Lucene90DocValuesConsumer extends DocValuesConsumer {
   private byte[] termsDictBuffer;
 
   /** expert: Creates a new writer */
+  //除了第一个参数，其他都是固定值。博主是怎么知道的？
   public Lucene90DocValuesConsumer(
       SegmentWriteState state,
       String dataCodec,
@@ -72,12 +73,15 @@ final class Lucene90DocValuesConsumer extends DocValuesConsumer {
       String metaCodec,
       String metaExtension)
       throws IOException {
+    //2的14次方大小的空间 存byte,命名为termsDictBuffer，看着像是存放词典的缓存的
     this.termsDictBuffer = new byte[1 << 14];
     boolean success = false;
     try {
+      //docValue的dataName组成：segmentName_segmentSuffix.ext 或者segmentName（区别在于segmentSuffix和ext的长度）
       String dataName =
           IndexFileNames.segmentFileName(
               state.segmentInfo.name, state.segmentSuffix, dataExtension);
+      //具体调用的抽象方法是哪个，需要看state.directory是什么类型的Directory
       data = state.directory.createOutput(dataName, state.context);
       CodecUtil.writeIndexHeader(
           data,

@@ -88,7 +88,8 @@ public final class CodecUtil {
    * Writes a codec header for an index file, which records both a string to identify the format of
    * the file, a version number, and data to identify the file instance (ID and auxiliary suffix
    * such as generation).
-   *
+   * 为index文件写文件头。记录文件的格式的标志、版本号和标识这个文件实体的数据（id和辅助的后缀如代）
+   * auxiliary：辅助的，后备的
    * <p>This header can be parsed and validated with {@link #checkIndexHeader(DataInput, String,
    * int, int, byte[], String) checkIndexHeader()}.
    *

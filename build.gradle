@@ -98,6 +98,8 @@ configurations {
 dependencies {
   // Use a newer groovy that doesn't have illegal reflective accesses.
   groovy "org.codehaus.groovy:groovy-all:3.0.9"
+//  implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
+
 }
 
 apply from: file('buildSrc/scriptDepVersions.gradle')
@@ -183,3 +185,5 @@ apply from: file('gradle/hacks/turbocharge-jvm-opts.gradle')
 apply from: file('gradle/hacks/dummy-outputs.gradle')
 
 apply from: file('gradle/pylucene/pylucene.gradle')
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17

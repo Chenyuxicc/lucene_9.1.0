@@ -52,6 +52,8 @@ import org.apache.lucene.util.packed.PackedInts;
  * Abstract API that consumes numeric, binary and sorted docvalues. Concrete implementations of this
  * actually do "something" with the docvalues (write it into the index in a specific format).
  *
+ *
+ * concrete :具体的
  * <p>The lifecycle is:
  *
  * <ol>

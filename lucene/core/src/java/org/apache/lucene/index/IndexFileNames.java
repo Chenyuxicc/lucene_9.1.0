@@ -86,9 +86,11 @@ public final class IndexFileNames {
    *
    * <p><b>NOTE:</b> all custom files should be named using this method, or otherwise some
    * structures may fail to handle them properly (such as if they are added to compound files).
+   * 如果segmentSuffix和ext的长度大于0，就会返回 segmentName_segmentSuffix.ext，否则返回segmentName
    */
   public static String segmentFileName(String segmentName, String segmentSuffix, String ext) {
     if (ext.length() > 0 || segmentSuffix.length() > 0) {
+      //断言失败会抛出错误 AssertionError
       assert !ext.startsWith(".");
       StringBuilder sb =
           new StringBuilder(segmentName.length() + 2 + segmentSuffix.length() + ext.length());

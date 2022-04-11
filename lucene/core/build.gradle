@@ -22,4 +22,5 @@ description = 'Lucene core library'
 dependencies {
   moduleTestImplementation project(':lucene:codecs')
   moduleTestImplementation project(':lucene:test-framework')
+  implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
 }
